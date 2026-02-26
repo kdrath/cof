@@ -42,9 +42,9 @@
     }
 
     .container {
-      max-width: 680px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 3rem;
     }
 
     /* HEADER */
@@ -110,7 +110,7 @@
       font-size: 1rem;
       line-height: 1.8;
       color: var(--black);
-      max-width: 560px;
+      max-width: 760px;
     }
 
     .hero-body p {
@@ -372,13 +372,13 @@
     }
 
     /* RESPONSIVE */
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       .container {
         padding: 0 1.5rem;
       }
 
       .hero {
-        padding: 4rem 0 3rem;
+        padding: 2rem 0;
       }
 
       .footer-inner {
@@ -388,6 +388,16 @@
 
       .footer-right {
         align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1.25rem;
+      }
+
+      .hero {
+        padding: 1.5rem 0;
       }
     }
   </style>
@@ -452,8 +462,8 @@
       <div class="footer-inner">
         <span class="footer-name">&copy; 2025 Center for Operational Foresight</span>
         <div class="footer-legal">
-          <a href="/privacy-policy.html">Privacy Policy</a>
-          <a href="/terms-of-use.html">Terms of Use</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-use.html">Terms of Use</a>
         </div>
       </div>
       <p class="footer-disclaimer">Content provided for educational and informational purposes only.</p>
