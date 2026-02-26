@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Center for Operational Foresight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray: #595959;
+      --rule: 1px solid #bbb;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      cursor: crosshair;
+    }
+
+    a {
+      cursor: crosshair;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    header {
+      padding: 1.25rem 0 1rem;
+      border-bottom: var(--rule);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.1s;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .wordmark {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .wordmark:hover {
+      color: var(--gray);
+    }
+
+    .header-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.1rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .header-link:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .header-link:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 1.5rem 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .hero-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--black);
+      max-width: 560px;
+    }
+
+    .hero-body p {
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-opening {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-closing {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--black);
+    }
+
+    /* DIVIDER */
+    .rule {
+      border: none;
+      border-top: var(--rule);
+      margin: 1.5rem 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.5s; }
+    .section:nth-child(2) { animation-delay: 0.65s; }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--black);
+    }
+
+    .section-body p {
+      margin-bottom: 0;
+    }
+
+    .section-body p + p {
+      margin-top: 1.2rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 1.5rem 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    .cta-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--black);
+      padding: 0.9rem 1.75rem;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: opacity 0.2s ease;
+    }
+
+    .cta-primary:hover {
+      opacity: 0.8;
+    }
+
+    .cta-secondary {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      border-bottom: 1px solid #bbb;
+      padding-bottom: 0.15rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .cta-secondary:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .creators-note {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .creators-note .section-body p {
+      margin-bottom: 1.2rem;
+    }
+
+    .creators-note .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .signature {
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .signature-mark {
+      margin-top: 0.75rem;
+      opacity: 0.6;
+    }
+
+    .lexical {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+    }
+
+    .lexical-entry {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      color: var(--gray);
+      line-height: 1.9;
+    }
+
+    .lexical-headword {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .institutional-stamp {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 1.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: var(--rule);
+      padding: 2.5rem 0 2rem;
+      margin-top: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.1rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .footer-legal a:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .footer-disclaimer {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.45rem;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: var(--gray);
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .hero {
+        padding: 4rem 0 3rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-right {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="wordmark">Center for Operational Foresight</a>
+      <a href="#" class="header-link">Subscribe →</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-body">
+        <p class="hero-opening">The speed of change has gotten ahead of most organizations.</p>
+        <p>The ones that adapt built something most never do: the discipline to see what's coming before change reshapes their decisions, their people, their resources.</p>
+        <p class="hero-closing">This is operational foresight. Reading decisions, structures, and resource allocation to anticipate outcomes.</p>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Built for</p>
+      <div class="section-body">
+        <p>Founders and operators working on organizational strategy, product decisions, and the people and structures that hold it all together.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Our Work</p>
+      <div class="section-body">
+        <p>Published work includes diagnostic essays on organizational behavior and exhibit-style readings of corporate announcements, restructurings, and policy changes.</p>
+        <p>Seeing what's coming is a learnable skill. It changes how you operate.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <section class="cta-section">
+      <h2 class="cta-heading">Follow on Substack</h2>
+      <div class="cta-links">
+        <a href="#" class="cta-primary">Subscribe</a>
+        <a href="#" class="cta-secondary">Get in touch</a>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <div class="section creators-note">
+      <p class="section-label">Director's Note</p>
+      <div class="section-body">
+        <p>Most foresight looks outward, toward markets and emerging trends. The Center looks at how organizations respond once those forces enter them: how decisions move through reporting lines, incentives, and authority structures.</p>
+        <p>The work connects strategic foresight with operational reality, bringing together pieces that exist across many fields.</p>
+        <p>The future is already visible in the present. I find that endlessly fascinating. This is how I explore it.</p>
+        <p class="signature">— Kim D., Executive Director</p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-name">&copy; 2025 Center for Operational Foresight</span>
+        <div class="footer-legal">
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-use.html">Terms of Use</a>
+        </div>
+      </div>
+      <p class="footer-disclaimer">Content provided for educational and informational purposes only.</p>
+    </footer>
+  </div>
+</body>
+</html>

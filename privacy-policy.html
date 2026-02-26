@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Center for Operational Foresight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray: #595959;
+      --rule: 1px solid #bbb;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      cursor: crosshair;
+    }
+
+    a {
+      cursor: crosshair;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header {
+      padding: 1.25rem 0 1rem;
+      border-bottom: var(--rule);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.1s;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .wordmark {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .wordmark:hover {
+      color: var(--gray);
+    }
+
+    .header-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.1rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .header-link:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .page-title-block {
+      padding: 1.5rem 0 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .doc-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .effective-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 0.75rem;
+    }
+
+    .rule {
+      border: none;
+      border-top: var(--rule);
+      margin: 1.5rem 0;
+    }
+
+    .section {
+      margin-bottom: 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.4s; }
+    .section:nth-child(2) { animation-delay: 0.5s; }
+    .section:nth-child(3) { animation-delay: 0.6s; }
+    .section:nth-child(4) { animation-delay: 0.65s; }
+    .section:nth-child(5) { animation-delay: 0.7s; }
+    .section:nth-child(6) { animation-delay: 0.75s; }
+    .section:nth-child(7) { animation-delay: 0.8s; }
+    .section:nth-child(8) { animation-delay: 0.85s; }
+    .section:nth-child(9) { animation-delay: 0.9s; }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--black);
+    }
+
+    .section-body p {
+      margin-bottom: 0;
+    }
+
+    .section-body p + p {
+      margin-top: 1.2rem;
+    }
+
+    .section-body a {
+      color: var(--black);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .section-body a:hover {
+      color: var(--gray);
+    }
+
+    footer {
+      border-top: var(--rule);
+      padding: 2.5rem 0 2rem;
+      margin-top: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.1rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .footer-legal a:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .footer-disclaimer {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.45rem;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: var(--gray);
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <a href="/" class="wordmark">Center for Operational Foresight</a>
+      <a href="/#subscribe" class="header-link">Subscribe →</a>
+    </header>
+
+    <div class="page-title-block">
+      <p class="doc-label">Legal</p>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="effective-date">Effective: January 1, 2025 &nbsp;·&nbsp; Last updated: January 1, 2025</p>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Overview</p>
+      <div class="section-body">
+        <p>The Center for Operational Foresight ("we," "us," or "our") is an independent publication operated by Kim Drath. This policy explains what information we collect when you interact with this website or subscribe to our publication, how we use it, and the choices available to you.</p>
+        <p>We collect only what we need. We do not sell your information. We do not advertise.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Information We Collect</p>
+      <div class="section-body">
+        <p><strong>Information you provide.</strong> When you subscribe to the Center for Operational Foresight newsletter or mailing list, we collect your email address. If you contact us directly, we may retain the content of that communication and any contact details you include.</p>
+        <p><strong>Information collected automatically.</strong> When you visit this website, standard server and analytics tools may collect your IP address, browser type, referring URL, pages visited, and the date and time of your visit. This information is used in aggregate to understand how the site is used and to maintain its operation.</p>
+        <p><strong>Substack.</strong> Our publication is hosted and distributed through Substack. If you subscribe, create an account, or interact with our content on Substack, Substack's own privacy practices apply in addition to this policy. We encourage you to review Substack's Privacy Policy at <a href="https://substack.com/privacy" target="_blank" rel="noopener">substack.com/privacy</a>.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">How We Use Your Information</p>
+      <div class="section-body">
+        <p>We use the information we collect to deliver our publication to subscribers, respond to correspondence, maintain and improve the website, and understand general readership patterns in aggregate.</p>
+        <p>We do not use your information to build advertising profiles, sell to third parties, or for any purpose unrelated to operating this publication.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Email Communications</p>
+      <div class="section-body">
+        <p>If you subscribe, you will receive issues of the publication and occasional notices about the Center's work. You may unsubscribe at any time using the link included in every email or by contacting us directly. Unsubscribing removes you from future mailings; it does not delete records already held by Substack, which is governed by their policies.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Sharing and Disclosure</p>
+      <div class="section-body">
+        <p>We do not sell, rent, or trade your personal information. We may share information with service providers who assist in operating this publication, including Substack and standard web hosting and analytics providers, only to the extent necessary to operate the service. We may disclose information if required by law or to protect the rights and safety of the publication and its readers.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Data Retention</p>
+      <div class="section-body">
+        <p>Subscriber information is retained for as long as you remain subscribed. If you unsubscribe, your email address may be retained in suppression lists to honor your opt-out preference. Correspondence is retained for a reasonable period necessary to address your inquiry.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Your Rights</p>
+      <div class="section-body">
+        <p>Depending on where you are located, you may have rights to access, correct, or request deletion of personal information we hold about you. To exercise these rights or to ask questions about your information, contact us at the address below. We will respond within a reasonable timeframe.</p>
+        <p>Residents of California and the European Economic Area may have additional rights under applicable law. Because we collect minimal personal data and do not engage in data sales or targeted advertising, many of these provisions have limited practical application to our operations, but we take them seriously and will honor requests to the extent required.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Cookies and Tracking</p>
+      <div class="section-body">
+        <p>This website may use standard cookies or similar technologies to support basic site functionality and analytics. Substack uses cookies in connection with its platform. You may configure your browser to limit or refuse cookies; doing so may affect certain functionality.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Changes to This Policy</p>
+      <div class="section-body">
+        <p>We may update this policy from time to time. When we do, we will revise the date at the top of this page. Continued use of this site or subscription to our publication after changes take effect constitutes acceptance of the revised policy.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="section">
+      <p class="section-label">Contact</p>
+      <div class="section-body">
+        <p>Questions about this policy or your information may be directed to:<br>
+        Center for Operational Foresight<br>
+        Kim Drath, Executive Director<br>
+        <a href="mailto:hello@centerforoperationalforesight.com">hello@centerforoperationalforesight.com</a></p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-name">&copy; 2025 Center for Operational Foresight</span>
+        <div class="footer-legal">
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-use.html">Terms of Use</a>
+        </div>
+      </div>
+      <p class="footer-disclaimer">Content provided for educational and informational purposes only.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
